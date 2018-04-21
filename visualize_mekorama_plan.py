@@ -12,7 +12,20 @@ try:
   in_file = open(args.planfile, 'r')
   
   for action in in_file.readlines():
-    print(action)
+    words = action.split();
+    if "moveup" in action:
+      print("Moving " + words[1] + " up");
+    elif "movedown" in action:
+      print("Moving " + words[1] + " down");
+    elif "moveright" in action:
+      print("Moving " + words[1] + " right");
+    elif "moveleft" in action:
+      print("Moving " + words[1] + " left");
+    elif "cost":
+      break
+    else:
+      print("Bugger!!!")
+      exit()
 
 finally:
   in_file.close()
