@@ -11,13 +11,13 @@ parser.add_argument('-f', '--planfile', dest='planfile', required=True,
 args = parser.parse_args()
 
 tiles = []
-tiles.append(tile.Tile("hor2", 1, 4, 1));
-tiles.append(tile.Tile("ver3", 3, 4, 2));
-tiles.append(tile.Tile("ver3", 4, 5, 3));
-tiles.append(tile.Tile("hor2", 4, 3, 4));
-tiles.append(tile.Tile("ver3", 6, 3, 5));
-tiles.append(tile.Tile("ver2", 2, 1, 6));
-tiles.append(tile.Tile("hor2", 5, 1, 7));
+tiles.append(tile.Tile("hor2", 1, 4, 1))
+tiles.append(tile.Tile("ver3", 3, 4, 2))
+tiles.append(tile.Tile("ver3", 4, 5, 3))
+tiles.append(tile.Tile("hor2", 4, 3, 4))
+tiles.append(tile.Tile("ver3", 6, 3, 5))
+tiles.append(tile.Tile("ver2", 2, 1, 6))
+tiles.append(tile.Tile("hor2", 5, 1, 7))
 
 fig = plt.figure()
 mekorama_display.mekodisplay(fig, tiles)
@@ -35,7 +35,7 @@ try:
 
     print("Got action: " + action)
 
-    words = action.split();
+    words = action.split()
     i = int(words[1][1]) - 1
     #print("Tile number " + str(i+1) + " was at position " + str(tiles[i].x) + ", " + str(tiles[i].y))
     if "moveup" in action:
