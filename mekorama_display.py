@@ -1,9 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.path import Path
 import matplotlib.patches as patches
 import matplotlib.lines as lines
-import matplotlib.transforms as tf
 
 
 def addHor2(ax,x,y,nr):
