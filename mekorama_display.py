@@ -21,8 +21,10 @@ def addVer3(ax,x,y,nr):
   plt.text(x,y,str(nr),ha='center',va='center')
   ax.add_patch(plt.Circle((x,y),0.3,fill=False))
 
-def mekodisplay(fig,x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7):
+def mekodisplay(fig, tiles):
 
+  fig.clear()
+  
   ax = fig.add_subplot(111)
   # Draw the grid
   # Draw the horisontal lines
@@ -38,14 +40,13 @@ def mekodisplay(fig,x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7):
   for y in range(1,7):
     plt.text(0.4,y,('y'+str(y)),fontsize=12,ha='right',va='center')
 
-  addHor2(ax,x1,y1,1)
-  addVer3(ax,x2,y2,2)
-  addVer3(ax,x3,y3,3)
-  addHor2(ax,x4,y4,4)
-  addVer3(ax,x5,y5,5)
-  addVer2(ax,x6,y6,6)
-  addHor2(ax,x7,y7,7)
-
+  for tile in tiles:
+    if tile.type == "hor2":
+      addHor2(ax, tile.x, tile.y, tile.id)
+    elif tile.type == "ver2":
+      addVer2(ax, tile.x, tile.y, tile.id)
+    elif tile.type == "ver3":
+      addVer3(ax, tile.x, tile.y, tile.id)
 
   ax.axis('equal')
   ax.set_xlim(-1, 7)
@@ -53,11 +54,4 @@ def mekodisplay(fig,x1,y1,x2,y2,x3,y3,x4,y4,x5,y5,x6,y6,x7,y7):
   ax.grid(False)
   ax.set_axis_off()
 
-  plt.show()
-
-def main():
-  fig = plt.figure()
-  mekodisplay(fig,1,4,3,4,4,5,4,3,6,3,2,1,5,1)
-
-if __name__== "__main__":
-  main()
+  plt.pause(0.25)
