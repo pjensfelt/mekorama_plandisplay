@@ -54,4 +54,4 @@ def mekodisplay(fig, tiles):
   ax.grid(False)
   ax.set_axis_off()
 
-  plt.pause(0.25)
+  plt.pause(0.33)

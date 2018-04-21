@@ -27,13 +27,13 @@ try:
   
   for action in in_file.readlines():
     
-    print("Got action: " + action)
-    
     if "cost" in action:
       break
     elif "move" not in action:
       print("Unexpected statement in plan. Skipping " + action)
       continue
+
+    print("Got action: " + action)
 
     words = action.split();
     i = int(words[1][1]) - 1
@@ -57,5 +57,5 @@ finally:
   in_file.close()
 
 print("Close the figure window to end")
-fig.show()
+plt.show()
 
