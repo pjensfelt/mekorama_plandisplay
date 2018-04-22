@@ -2,6 +2,13 @@
 This software can be used to visualize plans made for the Mekorama assignment in the WASP course. With some modifications it can be used for more levels but right now it is hard coded for level 26. 
 
 ## Installing
+
+### Ubuntu 16.04
+```
+
+```
+
+### Mac OS X
 ```
 pip install matplotlib
 git clone https://github.com/pjensfelt/mekorama_plandisplay.git
