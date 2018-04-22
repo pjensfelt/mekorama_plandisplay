@@ -3,10 +3,12 @@ This software can be used to visualize plans made for the Mekorama assignment in
 
 ## Installing
 
-### Ubuntu 16.04
+### WASP VM Ubuntu 16.04
+```
+cd ~/software
+git clone https://github.com/pjensfelt/mekorama_plandisplay.git
 ```
 
-```
 
 ### Mac OS X
 ```
