@@ -8,8 +8,8 @@ git clone https://github.com/pjensfelt/mekorama_plandisplay.git
 ```
 
 ## Running
-Assuming that you have create a plan and that this plan fie is called plan_sas.3`
+Assuming that you have create a plan and that this plan fie is called `sas_plan.1`
 ```
 cd mekorama_plandisplay
-python visualize_mekorama_plan.py -f sas_plan.3 
+python visualize_mekorama_plan.py -f sas_plan.1
 ```
