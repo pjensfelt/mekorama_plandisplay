@@ -4,7 +4,7 @@
 ```
 pip install matplotlib
 git clone https://github.com/pjensfelt/mekorama_plandisplay.git
-``
+```
 
 ## Running
 ```
