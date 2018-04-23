@@ -1,2 +1,0 @@
-(movedown-ver3 t2 x3 y2 y3 y4 y5)
-; cost = 1 (unit cost)
