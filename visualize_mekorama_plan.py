@@ -11,13 +11,13 @@ parser.add_argument('-f', '--planfile', dest='planfile', required=True,
 args = parser.parse_args()
 
 tiles = []
-tiles.append(tile.Tile("hor2", 1, 4, 1))
-tiles.append(tile.Tile("ver3", 3, 4, 2))
-tiles.append(tile.Tile("ver3", 4, 5, 3))
-tiles.append(tile.Tile("hor2", 4, 3, 4))
-tiles.append(tile.Tile("ver3", 6, 3, 5))
-tiles.append(tile.Tile("ver2", 2, 1, 6))
-tiles.append(tile.Tile("hor2", 5, 1, 7))
+tiles.append(tile.TileHor2(1, 1, 4))
+tiles.append(tile.TileVer3(2, 3, 4))
+tiles.append(tile.TileVer3(3, 4, 5))
+tiles.append(tile.TileHor2(4, 4, 3))
+tiles.append(tile.TileVer3(5, 6, 3))
+tiles.append(tile.TileVer2(6, 2, 1))
+tiles.append(tile.TileHor2(7, 5, 1))
 
 fig = plt.figure()
 mekorama_display.mekodisplay(fig, tiles)
@@ -38,6 +38,10 @@ try:
     words = action.split()
     i = int(words[1][1]) - 1
     #print("Tile number " + str(i+1) + " was at position " + str(tiles[i].x) + ", " + str(tiles[i].y))
+    
+    if words[0][-4:] != tiles[i].type:
+      raise RuntimeError('\nAction: ' + action + 'is not properly formated, t' + str(i+1) + ' is not a ' + words[0][-4:])
+    
     if "moveup" in action:
       tiles[i].moveup()
     elif "movedown" in action:

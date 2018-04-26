@@ -1,74 +1,87 @@
 class Tile:
   type = 'hor2'
+  id = 1
   x = 1
   y = 1
-  id = 1
   xmin = 1
   xmax = 6
   ymin = 1
   ymax = 6
   
-  def __init__(self, type, x, y, id):
+  def __init__(self, type, id, x, y):
     self.type = type
+    self.id = id
     self.x = x
     self.y = y
-    self.id = id
+    self.xmin = 1
+    self.xmax = 6
+    self.ymin = 1
+    self.ymax = 6
+    print("Created a tile of type " + self.type + " with id=" + str(self.id) + " at position x=" + str(self.x) + " y=" + str(self.y))
   
-    if type == "hor2":
-      self.xmin = 1
-      self.xmax = 5
-      self.ymin = y
-      self.ymax = y
-    elif type == "ver2":
-      self.xmin = x
-      self.xmax = x
-      self.ymin = 1
-      self.ymax = 5
-    elif type == "ver3":
-      self.xmin = x
-      self.xmax = x
-      self.ymin = 2
-      self.ymax = 5
-    else:
-      self.xmin = 1
-      self.xmax = 6
-      self.ymin = 1
-      self.ymax = 6
-      print("ERROR: Unknown type " + self.type)
-    print("Created a tile of type " + self.type + " with id= " + str(self.id) + " at position x=" + str(self.x) + " y=" + str(self.y))
-
   def moveup(self):
-    if self.type.find("hor") >= 0:
-      print("ERROR: " + self.type + " cannot be moved up!!!!!")
-      return
-    if self.y + 1 > self.ymax:
-      print("ERROR: " + self.type + " cannot be moved up more, already at y=" + str(self.y))
-      return
-    self.y = self.y + 1
-
+    raise RuntimeError('Tile t' + str(self.id) + ' of type ' + self.type + ' cannot move up')
+  
   def movedown(self):
-    if "hor" in self.type:
-      print("ERROR: " + self.type + " cannot be moved down!!!!!")
-      return
-    if self.y - 1 < self.ymin:
-      print("ERROR: " + self.type + " cannot be moved down more, already at y=" + str(self.y))
-      return
-    self.y = self.y - 1
+    raise RuntimeError('Tile t' + str(self.id) + ' of type ' + self.type + ' cannot move down')
+  
+  def moveleft(self):
+    raise RuntimeError('Tile t' + str(self.id) + ' of type ' + self.type + ' cannot move left')
+  
+  def moveright(self):
+    raise RuntimeError('Tile t' + str(self.id) + ' of type ' + self.type + ' cannot move right')
+
+class TileHor2(Tile):
+  def __init__(self, id, x, y):
+    super().__init__('hor2', id,x,y)
+
+    self.xmax = 5
+    self.ymin = y
+    self.ymax = y
 
   def moveright(self):
-    if "ver" in self.type:
-      print("ERROR: " + self.type + " cannot be moved left!!!!!")
-      return
     if self.x + 1 > self.xmax:
-      print("ERROR: " + self.type + " cannot be moved right more, already at x=" + str(self.x))
-      return
-    self.x = self.x + 1
+      raise RuntimeError('TileHor2 ' + str(id) + ' cannot be moved right more, already at x=' + str(self.x))
+    self.x += 1
 
   def moveleft(self):
-    if "ver" in self.type:
-      print("ERROR: " + self.type + " cannot be moved right!!!!!")
-      return
     if self.x - 1 < self.xmin:
-      print("ERROR: " + self.type + " cannot be moved down more, already at x=" + str(self.x))
-      return
-    self.x = self.x - 1
+      raise RuntimeError('TileHor2 ' + str(id) + ' cannot be moved left more, already at x=' + str(self.x))
+    self.x -= 1
+
+class TileVer2(Tile):
+  def __init__(self, id, x, y):
+    super().__init__('ver2', id,x,y)
+    
+    self.xmin = x
+    self.xmax = x
+    self.ymax = 5
+  
+  def moveup(self):
+    if self.y + 1 > self.ymax:
+      raise RuntimeError('TileVer2 ' + str(id) + ' cannot be moved up more, already at y=' + str(self.y))
+    self.y += 1
+  
+  def movedown(self):
+    if self.y - 1 < self.ymin:
+      raise RuntimeError('TileVer2 ' + str(id) + ' cannot be moved down more, already at y=' + str(self.y))
+    self.y -= 1
+
+class TileVer3(Tile):
+  def __init__(self, id, x, y):
+    super().__init__('ver3', id,x,y)
+    
+    self.xmin = x
+    self.xmax = x
+    self.ymin = 2
+    self.ymax = 5
+  
+  def moveup(self):
+    if self.y + 1 > self.ymax:
+      raise RuntimeError('TileVer3 ' + str(id) + ' cannot be moved up more, already at y=' + str(self.y))
+    self.y += 1
+  
+  def movedown(self):
+    if self.y - 1 < self.ymin:
+      raise RuntimeError('TileVer3 ' + str(id) + ' cannot be moved down more, already at y=' + str(self.y))
+    self.y -= 1
