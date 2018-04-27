@@ -1,4 +1,4 @@
-class Tile:
+class Tile(object):
   type = 'hor2'
   id = 1
   x = 1
@@ -33,7 +33,7 @@ class Tile:
 
 class TileHor2(Tile):
   def __init__(self, id, x, y):
-    super().__init__('hor2', id,x,y)
+    super(TileHor2, self).__init__('hor2', id,x,y)
 
     self.xmax = 5
     self.ymin = y
@@ -51,7 +51,7 @@ class TileHor2(Tile):
 
 class TileVer2(Tile):
   def __init__(self, id, x, y):
-    super().__init__('ver2', id,x,y)
+    super(TileVer2, self).__init__('ver2', id,x,y)
     
     self.xmin = x
     self.xmax = x
@@ -69,7 +69,7 @@ class TileVer2(Tile):
 
 class TileVer3(Tile):
   def __init__(self, id, x, y):
-    super().__init__('ver3', id,x,y)
+    super(TileVer3, self).__init__('ver3', id,x,y)
     
     self.xmin = x
     self.xmax = x
