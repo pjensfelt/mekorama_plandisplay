@@ -2,23 +2,20 @@
 This software can be used to visualize plans made for the Mekorama assignment in the WASP course. With some modifications it can be used for more levels but right now it is hard coded for level 26. 
 
 ## Installing
-
-### WASP VM Ubuntu 16.04
 ```
-cd ~/software
 git clone https://github.com/pjensfelt/mekorama_plandisplay.git
 ```
 
-
-### Mac OS X
+### Requirements
+The tool requires matplotlib
 ```
 pip install matplotlib
-git clone https://github.com/pjensfelt/mekorama_plandisplay.git
 ```
 
+
 ## Running
-Assuming that you have create a plan and that this plan fie is called `sas_plan.1`
+Assuming that you have create a plan and pasted that this plan into a file called `plan.txt`
 ```
 cd mekorama_plandisplay
-python visualize_mekorama_plan.py -f sas_plan.1
+python visualize_mekorama_plan.py -f plan.txt
 ```
