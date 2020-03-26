@@ -17,5 +17,5 @@ pip install matplotlib
 Assuming that you have create a plan and pasted that this plan into a file called `plan.txt`
 ```
 cd mekorama_plandisplay
-python visualize_mekorama_plan.py -f plan.txt
+python visualize_mekorama_plan.py -f bad_plan.txt
 ```
